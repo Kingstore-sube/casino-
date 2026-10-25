@@ -195,7 +195,7 @@ body {
 .reel {
   flex: 1;
   max-width: 150px;
-  height: 132px;
+  height: 396px;
   background: #05030a;
   border: 2px solid rgba(255,255,255,0.08);
   border-radius: 10px;
@@ -586,7 +586,7 @@ body {
 }
 @media (max-width: 520px) {
   .reel-cell { height: 108px; }
-  .reel { height: 108px; max-width: 100px; }
+  .reel { height: 324px; max-width: 100px; }
   .sym-svg { width: 56px; height: 56px; }
   .sym-seven { font-size: 62px; }
   .sym-bar { font-size: 22px; padding: 4px 8px; }

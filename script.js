@@ -119,7 +119,9 @@ function buildStrip(strip, finalSym, extra) {
   strip.innerHTML = '';
   const cells = [];
   for (let i=0;i<count;i++) cells.push(weightedRandom());
-  cells.push(finalSym);
+  cells.push(weightedRandom()); // celda superior visible
+  cells.push(finalSym);         // resultado (centro)
+  cells.push(weightedRandom()); // celda inferior visible
   const frag = document.createDocumentFragment();
   cells.forEach(s => {
     const d = document.createElement('div');
@@ -143,7 +145,7 @@ function spinReel(index, finalSym, duration, delay) {
     strip.parentElement.classList.add('spinning');
     setTimeout(() => {
       strip.style.transition = 'transform ' + duration + 'ms cubic-bezier(0.12, 0.8, 0.2, 1.05)';
-      strip.style.transform = 'translateY(-' + (totalH - cellH) + 'px)';
+      strip.style.transform = 'translateY(-' + (totalH - 3 * cellH) + 'px)';
     }, delay);
     setTimeout(() => {
       strip.parentElement.classList.remove('spinning');
@@ -603,6 +605,18 @@ function updateMuteUI() {
 // Init
 buildLights(els.lightStrip, 14);
 buildLights(els.lightStrip2, 14);
+// Reels iniciales con 3 frutas visibles
+els.strips.forEach(strip => {
+  strip.innerHTML = '';
+  const frag = document.createDocumentFragment();
+  for (let i=0;i<3;i++) {
+    const d = document.createElement('div');
+    d.className = 'reel-cell';
+    d.innerHTML = symbolMarkup(weightedRandom());
+    frag.appendChild(d);
+  }
+  strip.appendChild(frag);
+});
 buildPaytable();
 renderStats();
 updateMuteUI();
