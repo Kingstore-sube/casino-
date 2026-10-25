@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casino HG - Tragamonedas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="floor"></div>
+
+  <div class="cabinet">
+    <!-- Marquesina superior -->
+    <div class="top-marquee">
+      <div class="light-strip" id="lightStrip"></div>
+      <div class="top-sign">
+        <span class="sign-crown">CASINO</span>
+        <span class="sign-hg">HG</span>
+      </div>
+      <div class="light-strip" id="lightStrip2"></div>
+    </div>
+
+    <!-- Barra de estado visible -->
+    <div class="status-bar">
+      <div class="status-item">
+        <span class="status-label">SALDO</span>
+        <span class="status-value gold" id="balanceTop">5000</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">GANANCIA</span>
+        <span class="status-value green" id="lastWinTop">0</span>
+      </div>
+      <div class="status-toggles">
+        <select id="autoSpeed" class="speed-select">
+          <option value="slow">AUTO LENTO</option>
+          <option value="medium" selected>AUTO MEDIO</option>
+          <option value="fast">AUTO RAPIDO</option>
+        </select>
+        <button id="autoBtnTop" class="toggle-btn">AUTO: OFF</button>
+        <button id="turboBtnTop" class="toggle-btn">TURBO: OFF</button>
+      </div>
+    </div>
+
+    <!-- Vitrina de reels -->
+    <div class="reel-housing">
+      <div class="glass"></div>
+      <div class="reels-frame" id="reelsFrame">
+        <div class="reels">
+          <div class="reel" id="reel0"><div class="reel-strip" id="strip0"></div></div>
+          <div class="reel" id="reel1"><div class="reel-strip" id="strip1"></div></div>
+          <div class="reel" id="reel2"><div class="reel-strip" id="strip2"></div></div>
+        </div>
+        <div class="payline"></div>
+        <div class="payline-glow"></div>
+      </div>
+      <div class="side-panel left"></div>
+      <div class="side-panel right"></div>
+    </div>
+
+    <!-- Panel de control -->
+    <div class="control-panel">
+      <div class="display-row">
+        <div class="lcd" id="marquee">BIENVENIDO - GIRA Y GANA</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-label">SALDO</span>
+          <span class="stat-value gold" id="balance">5000</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">APUESTA</span>
+          <div class="bet-control">
+            <button id="betDown" class="bet-step">-</button>
+            <input type="number" id="bet" class="bet-input" min="500" step="500" value="500" />
+            <button id="betUp" class="bet-step">+</button>
+          </div>
+        </div>
+        <div class="stat">
+          <span class="stat-label">GANANCIA</span>
+          <span class="stat-value green" id="lastWin">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">TIRADAS</span>
+          <span class="stat-value" id="spins">0</span>
+        </div>
+      </div>
+
+      <div class="controls-row">
+        <div class="quick-bets">
+          <button class="quick-btn" data-bet="500">500</button>
+          <button class="quick-btn" data-bet="1000">1000</button>
+          <button class="quick-btn" data-bet="2500">2500</button>
+          <button class="quick-btn" data-bet="5000">5000</button>
+          <button id="maxBtn" class="max-btn">MAX</button>
+        </div>
+
+        <div class="toggle-group">
+          <button id="autoBtn" class="toggle-btn">AUTO: OFF</button>
+          <button id="turboBtn" class="toggle-btn">TURBO: OFF</button>
+        </div>
+
+        <button id="spinBtn" class="spin-btn">
+          <span class="spin-text">GIRAR</span>
+        </button>
+
+        <button id="muteBtn" class="mute-btn">SOUND ON</button>
+      </div>
+
+      <div class="best-row">
+        <span class="best-label">MEJOR PREMIO:</span>
+        <span class="best-value" id="bestWin">0</span>
+      </div>
+    </div>
+
+    <div class="coin-tray"></div>
+  </div>
+
+  <!-- Palanca lateral -->
+  <div class="lever-assembly" id="leverAssembly">
+    <div class="lever-base"></div>
+    <div class="lever-arm" id="leverArm">
+      <div class="lever-knob"></div>
+    </div>
+  </div>
+
+  <!-- Overlay de premio grande -->
+  <div class="win-overlay" id="winOverlay">
+    <div class="win-overlay-text" id="winOverlayText">BIG WIN</div>
+    <div class="win-overlay-amount" id="winOverlayAmount">0</div>
+  </div>
+
+  <!-- Tabla de pagos -->
+  <section class="paytable">
+    <h2>TABLA DE PAGOS</h2>
+    <div class="paytable-grid" id="paytable"></div>
+  </section>
+
+  <footer class="footer">
+    <p>Modo demostracion - Sin dinero real - Juega responsablemente</p>
+  </footer>
+
+  <audio id="sndSpin" preload="auto"></audio>
+  <audio id="sndWin" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
